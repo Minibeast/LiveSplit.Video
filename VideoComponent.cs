@@ -97,7 +97,8 @@ namespace LiveSplit.Video
 
         private TimeSpan GetCurrentTime()
         {
-            return State.CurrentTime[TimingMethod.RealTime].Value;
+            if (!Settings.CountTimerOffset) { return State.CurrentTime[TimingMethod.RealTime].Value - State.Run.Offset; }
+            else { return State.CurrentTime[TimingMethod.RealTime].Value; }
         }
 
         public void Synchronize(TimeSpan offset)

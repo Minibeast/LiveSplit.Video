@@ -18,6 +18,7 @@ namespace LiveSplit.Video
         public TimeSpan Offset { get; set; }
         public float Height { get; set; }
         public float Width { get; set; }
+        public bool CountTimerOffset { get; set; }
         public LayoutMode Mode { get; set; }
 
         protected ITimeFormatter TimeFormatter { get; set; }
@@ -51,9 +52,11 @@ namespace LiveSplit.Video
             Width = 200;
             Height = 200;
             Offset = TimeSpan.Zero;
+            CountTimerOffset = true;
 
             txtVideoPath.DataBindings.Add("Text", this, "VideoPath", false, DataSourceUpdateMode.OnPropertyChanged);
             txtOffset.DataBindings.Add("Text", this, "OffsetString");
+            useTOffset.DataBindings.Add("Checked", this, "CountTimerOffset", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         public void SetSettings(XmlNode node)
@@ -63,6 +66,7 @@ namespace LiveSplit.Video
             OffsetString = SettingsHelper.ParseString(element["Offset"]);
             Height = SettingsHelper.ParseFloat(element["Height"]);
             Width = SettingsHelper.ParseFloat(element["Width"]);
+            CountTimerOffset = SettingsHelper.ParseBool(element["CountTimerOffset"], true);
         }
 
         public XmlNode GetSettings(XmlDocument document)
@@ -83,6 +87,7 @@ namespace LiveSplit.Video
             SettingsHelper.CreateSetting(document, parent, "VideoPath", VideoPath) ^
             SettingsHelper.CreateSetting(document, parent, "Offset", OffsetString) ^
             SettingsHelper.CreateSetting(document, parent, "Height", Height) ^
+            SettingsHelper.CreateSetting(document, parent, "CountTimerOffset", CountTimerOffset) ^
             SettingsHelper.CreateSetting(document, parent, "Width", Height);
         }
 
