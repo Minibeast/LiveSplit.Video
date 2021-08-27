@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentHostForm));
-            this.axVLCPlugin21 = new AxAXVLC.AxVLCPlugin2();
+            this.axVLCPlugin21 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.axVLCPlugin21)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,7 +38,7 @@
             this.axVLCPlugin21.Enabled = true;
             this.axVLCPlugin21.Location = new System.Drawing.Point(77, 42);
             this.axVLCPlugin21.Name = "axVLCPlugin21";
-            this.axVLCPlugin21.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axVLCPlugin21.OcxState")));
+            this.axVLCPlugin21.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("AxWindowsMediaPlayer.OcxState")));
             this.axVLCPlugin21.Size = new System.Drawing.Size(320, 240);
             this.axVLCPlugin21.TabIndex = 0;
             // 
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private AxAXVLC.AxVLCPlugin2 axVLCPlugin21;
+        private AxWMPLib.AxWindowsMediaPlayer axVLCPlugin21;
     }
 }
